@@ -12,16 +12,23 @@ const Catalogo = () => {
     return (
         <div className="catalogo-container">
             <h2 className="catalogo-title">Catálogo de Productos</h2>
-            <ul className="md3-list">
-                {productos.map((producto, id) => (
-                    <li key={producto.id} className="md3-list-item">
-                        <div className="md3-list-content">
-                            <span className="md3-item-name">{producto.nombre}</span>
-                        </div>
-                        <span className="md3-item-price">${producto.precio}</span>
-                    </li>
-                ))}
-            </ul>
+            {productos.length === 0 ?
+            (<p> No hay productos disponibles en el catálogo</p>
+
+            ) : (
+                
+            
+                <ul className="md3-list">
+                    {productos.map((producto) => (
+                        <li key={producto.id} className="md3-list-item">
+                            <div className="md3-list-content">
+                                <span className="md3-item-name">{producto.nombre}</span>
+                            </div>
+                            <span className="md3-item-price">${producto.precio}</span>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }

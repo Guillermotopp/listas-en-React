@@ -13,9 +13,8 @@ const Catalogo = () => {
         <div className="catalogo-container">
             <h2 className="catalogo-title">Catálogo de Productos</h2>
             <ul className="md3-list">
-                {productos.map((producto, index) => (
-                    /* Mantenemos la key={index} para tu clase de mañana */
-                    <li key={index} className="md3-list-item">
+                {productos.map((producto, id) => (
+                    <li key={producto.id} className="md3-list-item">
                         <div className="md3-list-content">
                             <span className="md3-item-name">{producto.nombre}</span>
                         </div>

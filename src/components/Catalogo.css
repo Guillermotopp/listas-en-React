@@ -7,7 +7,7 @@
 }
 
 .catalogo-title {
-    color: rgba(248, 243, 243, 0.677);
+    color: var(--md-sys-color-primary); /* El púrpura de tu App */
     font-size: 22px;
     margin-bottom: 20px;
     font-weight: 400;
@@ -18,10 +18,10 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: rgba(150, 36, 154, 0.239); /* Gris oscuro de la tarjeta */
+    background-color: var(--md-sys-color-surface); /* Gris oscuro de la tarjeta */
     border-radius: 24px; /* Bordes muy redondeados estilo M3 */
     overflow: hidden;
-    box-shadow: 0 2px 4px  rgba(130, 129, 130, 0.895); /* Gris oscuro de la tarjeta */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .md3-list-item {
@@ -29,13 +29,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
-    border-bottom: 1px solid rgba(150, 36, 154, 0.239); /* Gris oscuro de la tarjeta */
+    border-bottom: 1px solid rgba(206, 72, 72, 0.05); /* Separador casi invisible */
     transition: background-color 0.2s ease;
 }
 
 /* Efecto al pasar el ratón (Hover) */
 .md3-list-item:hover {
-    background-color: rgb(225, 222, 242); 
+    background-color: rgba(208, 188, 255, 0.1); /* Brillo suave */
     cursor: pointer;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .md3-item-name {
-    color: rgba(255, 255, 255, 0.608);
+    color: var(--md-sys-color-on-surface);
     font-size: 16px;
     text-transform: capitalize;
 }

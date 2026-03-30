@@ -5,4 +5,4 @@ Práctico del Curso de React Básico de LinkedIn
 
 ## React Compiler
 
-El uso de Index para listas que no se van a modificar
+Ahora se usa la propieedad id de la lista para la key (indexar los punteros de la lista)

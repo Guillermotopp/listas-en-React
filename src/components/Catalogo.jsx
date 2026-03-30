@@ -23,8 +23,8 @@ const Catalogo = () => {
 
     return (
         <>
+            <h2> Catálogo de Productos </h2>
             <ul>
-                <h2> Catálogo de Productos </h2>
                 {productos.map(
                     (producto) => (
                         <li> {producto.id}: {producto.nombre} - $ {producto.precio} </li>

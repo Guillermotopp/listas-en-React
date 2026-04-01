@@ -1,16 +1,32 @@
 import React from 'react';
 import "./Catalogo.css"; 
 
-// Estandarizamos el nombre a ProductoItem
 const ProductoItem = ({ producto }) => {
+    // Desestructuramos las propiedades para un código más limpio
+    const { nombre, precio, imagen } = producto;
+
     return (
-        /* La key está aquí adentro, en el elemento HTML devuelto */
-        <li key={producto.id} className="md3-list-item">
-            <div className="md3-list-content">
-                <span className="md3-item-name">{producto.nombre}</span>
+        <div className='card'>
+            {/* Contenedor principal: Imagen + Textos */}
+            <div className='item'>
+                {/* Imagen del producto */}
+                <img 
+                    src={imagen} 
+                    alt={`Vista previa de ${nombre}`} 
+                />
+
+                {/* Contenedor secundario: Nombre arriba, Precio abajo */}
+                <div className="item-text-content">
+                    <h2>{nombre}</h2>   
+                    <p>${precio.toFixed(2)}</p>
+                </div>
             </div>
-            <span className="md3-item-price">${producto.precio}</span>
-        </li>
+
+            {/* Botón comprar: Se centrará gracias al align-self: center del CSS */}
+            <button type="button">
+                Comprar
+            </button>
+        </div>
     );
 }
 

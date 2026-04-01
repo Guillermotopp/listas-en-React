@@ -1,56 +1,124 @@
 /* Catalogo.css */
 
-.catalogo-container {
-    max-width: 450px;
-    margin: 40px auto; /* Lo separamos un poco de arriba */
-    padding: 0 16px;
+/* --- Variables de Color (MD3) --- */
+:root {
+  --md-sys-color-primary: #6750A4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-surface: #fef7ff;
+  --md-sys-color-on-surface: #1d1b20;
+  --md-sys-color-outline-variant: #cac4d0;
+  --md-sys-color-secondary: #625b71;
+  --md-sys-color-error: #b3261e;
 }
 
+/* --- Estilos Generales --- */
 .catalogo-title {
-    color: var(--md-sys-color-primary); /* El púrpura de tu App */
-    font-size: 22px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+  color: var(--md-sys-color-primary);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.md3-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: var(--md-sys-color-surface); /* Gris oscuro de la tarjeta */
-    border-radius: 24px; /* Bordes muy redondeados estilo M3 */
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+/* Contenedor Grid para las tarjetas */
+.productos {
+  display: grid;
+  /* Crea columnas automáticas de mínimo 280px */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.md3-list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid rgba(206, 72, 72, 0.05); /* Separador casi invisible */
-    transition: background-color 0.2s ease;
+/* --- La Tarjeta (Card) --- */
+.card {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column; /* Organiza el contenido en vertical */
+  gap: 20px; /* Espacio entre el cuerpo y el botón */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Efecto al pasar el ratón (Hover) */
-.md3-list-item:hover {
-    background-color: rgba(208, 188, 255, 0.1); /* Brillo suave */
-    cursor: pointer;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-color: var(--md-sys-color-primary);
 }
 
-.md3-list-item:last-child {
-    border-bottom: none;
+/* --- Contenido Principal (Imagen + Textos) --- */
+.item {
+  display: flex;
+  flex-direction: row; /* Imagen a la izquierda, textos a la derecha */
+  align-items: center;
+  gap: 16px;
 }
 
-.md3-item-name {
-    color: var(--md-sys-color-on-surface);
-    font-size: 16px;
-    text-transform: capitalize;
+/* Imagen del producto */
+.card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover; /* Evita que la imagen se deforme */
+  border-radius: 8px;
+  background-color: #f0f0f0;
 }
 
-.md3-item-price {
-    color: var(--md-sys-color-primary);
-    font-weight: 600;
-    font-size: 15px;
+/* Contenedor de Nombre y Precio (Derecha) */
+.item-text-content {
+  display: flex;
+  flex-direction: column; /* Nombre arriba, precio abajo */
+  gap: 4px;
+}
+
+.item h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+  text-transform: capitalize;
+}
+
+.item p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+}
+
+/* --- Botón Comprar Centrado --- */
+button {
+  align-self: center; /* ESTO centra el botón horizontalmente dentro de la card */
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  padding: 10px 32px;
+  border-radius: 100px; /* Estilo pill-button de MD3 */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+button:hover {
+  background-color: #7961b9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Mensaje cuando no hay productos */
+.no-productos {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--md-sys-color-secondary);
+  grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+  margin-top: 40px;
 }

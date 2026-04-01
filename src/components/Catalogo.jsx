@@ -1,14 +1,21 @@
 import React from "react";
-// Corregimos la importación para usar PascalCase (ProductoItem con 'I' mayúscula)
 import ProductoItem from "./ProductoItem";
+
+// 1. Corregimos las rutas (usando ./ y barras /)
+import camisa from "./camisa.png";
+import pantalon from "./pantalon.png";
+import zapatos from "./zapatos.png";
+import corbata from "./corbata.jpg";
+
 import "./Catalogo.css"; 
 
 const Catalogo = () => {
     const productos = [
-        { id: 1, nombre: 'Camiseta', precio: 20.99 },
-        { id: 2, nombre: 'Pantalon', precio: 20.22 },
-        { id: 3, nombre: 'Zapatos', precio: 21.22 },
-        { id: 4, nombre: 'Corbata', precio: 23.22 }
+        { id: 1, nombre: 'Camisa', precio: 20.99, imagen: camisa },
+        { id: 2, nombre: 'Pantalón', precio: 20.22, imagen: pantalon },
+        { id: 3, nombre: 'Zapatos', precio: 21.22, imagen: zapatos },
+        // 2. Corregimos el nombre de la variable (era corbata, no crobata)
+        { id: 4, nombre: 'Corbata', precio: 23.22, imagen: corbata }
     ];
 
     return (
@@ -17,12 +24,11 @@ const Catalogo = () => {
             {productos.length === 0 ? (
                 <p> No hay productos disponibles en el catálogo</p>
             ) : (
-                <ul className="md3-list">
+                <div className='productos'>
                     {productos.map((producto) => (
-                        /* Sin la key aquí, tal como lo pediste por fines didácticos */
-                        <ProductoItem producto={producto} />
+                        <ProductoItem key={producto.id} producto={producto} />
                     ))}
-                </ul>
+                </div>
             )}
         </>
     );

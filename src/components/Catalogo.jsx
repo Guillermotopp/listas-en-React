@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Catalogo.css"; 
 
 const Catalogo = () => {
@@ -10,7 +10,7 @@ const Catalogo = () => {
     ];
 
     return (
-        <div className="catalogo-container">
+        <Fragment>
             <h2 className="catalogo-title">Catálogo de Productos</h2>
             {productos.length === 0 ?
             (<p> No hay productos disponibles en el catálogo</p>
@@ -29,7 +29,7 @@ const Catalogo = () => {
                     ))}
                 </ul>
             )}
-        </div>
+        </Fragment>
     );
 }
 

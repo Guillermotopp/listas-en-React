@@ -1,4 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
+// Corregimos la importación para usar PascalCase (ProductoItem con 'I' mayúscula)
+import ProductoItem from "./ProductoItem";
 import "./Catalogo.css"; 
 
 const Catalogo = () => {
@@ -12,20 +14,13 @@ const Catalogo = () => {
     return (
         <>
             <h2 className="catalogo-title">Catálogo de Productos</h2>
-            {productos.length === 0 ?
-            (<p> No hay productos disponibles en el catálogo</p>
-
+            {productos.length === 0 ? (
+                <p> No hay productos disponibles en el catálogo</p>
             ) : (
-                
-            
                 <ul className="md3-list">
                     {productos.map((producto) => (
-                        <li key={producto.id} className="md3-list-item">
-                            <div className="md3-list-content">
-                                <span className="md3-item-name">{producto.nombre}</span>
-                            </div>
-                            <span className="md3-item-price">${producto.precio}</span>
-                        </li>
+                        /* Sin la key aquí, tal como lo pediste por fines didácticos */
+                        <ProductoItem producto={producto} />
                     ))}
                 </ul>
             )}
